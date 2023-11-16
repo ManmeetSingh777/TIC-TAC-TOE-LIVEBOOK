@@ -19,9 +19,9 @@ boxElement.forEach((box)=>{
 let click=0;
 
 function handleClick(event){
-    console.log(event.target.getAttribute("id"))
+    // console.log(event.target.getAttribute("id"))
     let i=event.target.getAttribute("id")
-    console.log(i-1)
+    // console.log(i-1)
     let p=document.createElement('p')
     
     boxElement[i-1].append(p)
@@ -31,7 +31,7 @@ function handleClick(event){
     xAttempts.push(i-1);
     p.innerText="X"
     xAttempts.push(i-1)
-    console.log(xAttempts)
+    // console.log(xAttempts)
     result(winc,xAttempts,'x')
   }
 
@@ -39,14 +39,16 @@ function handleClick(event){
         console.log(click)
         oAttempts.push(i-1) 
         p.innerText="O"
-        console.log(oAttempts)
+        // console.log(oAttempts)
         result(winc,oAttempts,'o')
     }
     
     click++
+    console.log(click)
     if (click==9 && wonTheGame==0){
+        console.log('hi')
         gameResult.style.visibility="visible";
-        message.innerHtml="Its a Tie"
+        message.innerHTML="Its a Tie"
     }
 
 
@@ -74,10 +76,9 @@ function result(winc,attempts,playerName){
     gameResult.style.visibility="visible";
     message.innerHTML="'"+playerName+"'"+"Won the Game!";
     wonTheGame=1;
-
-
-
 }
+}
+
 var play_again=document.getElementById("button")
 play_again.onclick=function(){playagain()}
 
@@ -85,7 +86,7 @@ function playagain(){
     window.location.reload();
 }
 
-}
+
 
 
 
